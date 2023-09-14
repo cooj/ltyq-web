@@ -18,15 +18,12 @@ import '~/assets/scss/default.scss'
 
 // const locale = ref(zhCn)
 const systemInfo = await useSystemState().getSystemInfo()
-console.log('🚀 ~ file: app.vue:22 ~ systemInfo:', systemInfo)
 
 const { locale: lo } = useI18n()
 
 const locale = computed(() => {
     return lo.value === 'en' ? en : zhCn
 })
-
-if (process.client) console.log(useRouter().getRoutes())
 
 // let a = -1
 // if (a > 0){ a++}
