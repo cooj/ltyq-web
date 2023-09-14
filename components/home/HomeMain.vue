@@ -3,12 +3,12 @@
         <div class="py60px">
             <div class="container">
                 <h3 class="mb30px text-center text-24px c-#333">
-                    {{ $lang('推荐产品', 'RECOMMEND PRODUCT') }}
+                    <span class="tle-line">{{ $lang('推荐产品', 'RECOMMEND PRODUCT') }}</span>
                 </h3>
                 <div class="swp-box">
+                    <!-- :creative-effect="effect" effect="creative" -->
                     <Swiper :modules="[SwiperAutoplay, SwiperEffectCreative, SwiperNavigation]" :slides-per-view="4"
-                        :space-between="25" :loop="true" :autoplay="{ delay: 8000, disableOnInteraction: true }"
-                        effect="creative" :creative-effect="effect"
+                        :space-between="25" :autoplay="{ delay: 5000, disableOnInteraction: true }"
                         :navigation="{ nextEl: '.swp-next', prevEl: '.swp-prev' }">
                         <SwiperSlide v-for="(item, idx) in data?.recommend" :key="idx">
                             <NuxtLink :to="`/goods/${item.id}`" class="banner-link">
@@ -31,7 +31,7 @@
         <div class="sec-item1 co-main-bg-color py60px c-#fff">
             <div class="container">
                 <h3 class="mb30px text-center text-24px">
-                    {{ $lang('产品展示', 'PRODUCT DISPLAY') }}
+                    <span class="tle-line">{{ $lang('产品展示', 'PRODUCT DISPLAY') }}</span>
                 </h3>
                 <!-- <div class="px15px"> -->
                 <el-row :gutter="30">
@@ -69,7 +69,7 @@
         <div class="py60px">
             <div class="container">
                 <h3 class="mb30px text-center text-24px c-#333">
-                    {{ $lang('公司风采', 'COMPANY ELEGANCE') }}
+                    <span class="tle-line">{{ $lang('公司风采', 'COMPANY ELEGANCE') }}</span>
                 </h3>
                 <el-row class="mien-list">
                     <el-col v-for="(item, index) in data?.mienList" :key="item.id" :span="12" class="flex"
@@ -92,7 +92,7 @@
         <div class="sec-item1 co-main-bg-color py60px c-#fff">
             <div class="container">
                 <h3 class="mb35px text-center text-24px">
-                    {{ $lang('公司简介', 'COMPANY INFORMATION') }}
+                    <span class="tle-line">{{ $lang('公司简介', 'COMPANY INFORMATION') }}</span>
                 </h3>
                 <div class="mb30px flex">
                     <div class="w50%">
@@ -112,7 +112,7 @@
         <div class="py60px">
             <div class="container">
                 <h3 class="mb30px text-center text-24px c-#333">
-                    {{ $lang('新闻资讯', 'NEWS INFORMATION') }}
+                    <span class="tle-line">{{ $lang('新闻资讯', 'NEWS INFORMATION') }}</span>
                 </h3>
                 <ul class="news-list grid gap20px">
                     <li v-for="(item) in data?.newsList" :key="item.id">
@@ -145,18 +145,10 @@
 </template>
 
 <script lang="ts" setup>
-const effect = {
-    prev: {
-        shadow: false,
-        translate: ['-20%', 0, -1],
-    },
-    next: { translate: ['100%', 0, 0] },
-}
-
 const { $lang } = useNuxtApp()
 
 const { data } = await useCustomFetch<IIndexResponse>('/api/page/index')
-console.log('🚀 ~ file: HomeMain.vue:116 ~ data:', data)
+// console.log('🚀 ~ file: HomeMain.vue:116 ~ data:', data)
 
 const { data: companyInfo } = await useCustomFetch<IAboutInfoResponse>('/api/page/about', {
     params: {
@@ -166,20 +158,44 @@ const { data: companyInfo } = await useCustomFetch<IAboutInfoResponse>('/api/pag
 </script>
 
 <style lang="scss" scoped>
+.tle-line {
+    position: relative;
+    padding: 0 20px;
+
+    &::after,
+    &::before {
+        content: '';
+        width: 70px;
+        height: 1px;
+        background-color: #ccc;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &::before {
+        right: 100%;
+    }
+
+    &::after {
+        left: 100%;
+    }
+}
+
 .swp-box {
     position: relative;
     --swiper-navigation-size: 20px;
     --swiper-theme-color: var(--co-main-color);
 
     .swiper-button-next {
-        right: -40px;
+        right: -45px;
         width: 35px;
         height: 35px;
         border: 1px solid var(--swiper-theme-color);
     }
 
     .swiper-button-prev {
-        left: -40px;
+        left: -45px;
         width: 35px;
         height: 35px;
         border: 1px solid var(--swiper-theme-color);
@@ -193,7 +209,7 @@ const { data: companyInfo } = await useCustomFetch<IAboutInfoResponse>('/api/pag
     position: relative;
     top: 0;
     left: 0;
-    // padding-bottom: 30%;
+    overflow: hidden;
 
     >img {
         position: absolute;
@@ -241,8 +257,6 @@ const { data: companyInfo } = await useCustomFetch<IAboutInfoResponse>('/api/pag
     }
 
 }
-
-.sec-item1 {}
 
 .goods-dl {
     border: 1px solid #fff;
@@ -436,7 +450,7 @@ const { data: companyInfo } = await useCustomFetch<IAboutInfoResponse>('/api/pag
 
 .news-more {
     border: 1px solid var(--co-main-color);
-    padding: 5px 30px;
+    padding: 7px 30px;
     font-size: 14px;
     border-radius: 20px;
 

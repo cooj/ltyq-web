@@ -1,16 +1,11 @@
 <template>
-    <div class="index-box">
+    <div class="min-h300px">
         <Suspense>
             <ClientOnly>
-                <!-- <PageView v-if="online" />
-        <div v-else text-gray:80>
-          You're offline
-        </div> -->
-                <!-- <HomeBanner /> -->
                 <HomeMain />
             </ClientOnly>
             <template #fallback>
-                <div italic op50>
+                <div class="min-h500px">
                     <span animate-pulse>Loading...</span>
                 </div>
             </template>
@@ -24,19 +19,9 @@
 </template>
 
 <script setup lang="ts">
-// import { HomeMain } from '~~/.nuxt/components';
-
-const online = useOnline()
-const name = ref('张三')
-
 definePageMeta({
     layout: 'home',
 })
 </script>
 
-<style  lang="scss" scoped>
-// .index-box {
-//     padding-top: 40px;
-//     background-color: #f3f3f3;
-// }
-</style>
+<style  lang="scss" scoped></style>

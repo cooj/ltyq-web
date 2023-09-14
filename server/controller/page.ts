@@ -305,7 +305,7 @@ export const getIndexData = async (event: H3Event) => {
         event.context.prisma.news.findMany({
             where: {
                 type: {
-                    in: [1, 4],
+                    in: [1, 3],
                 },
                 isHide: false,
                 // type: Number(param.type),
@@ -336,6 +336,6 @@ export const getIndexData = async (event: H3Event) => {
             goodsList: res3,
         },
         newsList: res4.filter(item => item.type === 1).slice(0, 6),
-        mienList: res4.filter(item => item.type === 4).slice(0, 4),
+        mienList: res4.filter(item => item.type === 3).slice(0, 4),
     }
 }

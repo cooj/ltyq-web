@@ -3,18 +3,19 @@
         <div class="header-top py10px">
             <div class="flex items-center justify-between container">
                 <NuxtLinkLocale to="/" class="logo">
-                    <img :src="systemInfo?.logo" class="max-h60px" alt="">
+                    <img :src="systemInfo?.logo" class="max-h75px" alt="">
                 </NuxtLinkLocale>
-                <div class="right">
+                <div class="flex items-center">
                     <div class="phone flex items-center">
                         <div class="icon mr10px">
                             <i class="i-carbon:phone-filled" />
                         </div>
                         <div class="c-#005a7f">
-                            全国咨询热线：<br>
+                            {{ $t('topPhone') }}：<br>
                             <span class="font-bold">{{ systemInfo?.phone }}</span>
                         </div>
                     </div>
+                    <BaseLanguage class="ml20px" />
                 </div>
             </div>
         </div>
@@ -36,7 +37,6 @@
 </template>
 
 <script lang="ts" setup>
-// setLangText()
 const { $lang } = useNuxtApp()
 const systemInfo = await useSystemState().getSystemInfo()
 // console.log(dat)
@@ -88,7 +88,7 @@ const menuList = await useMenuState().getMenuList()
 }
 
 .header-link {
-    line-height: 46px;
+    line-height: 52px;
     display: inline-block;
     font-weight: bold;
 }

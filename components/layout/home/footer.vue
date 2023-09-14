@@ -5,7 +5,7 @@
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">
                         <NuxtLinkLocale to="/" class="mr20px">
-                            <img :src="systemInfo?.logo" class="max-w350px" alt="">
+                            <img :src="systemInfo?.logo2" class="max-h150px max-w350px" alt="">
                         </NuxtLinkLocale>
                         <div class="lh-28px">
                             <p>{{ $lang('联系电话', 'Telephone') }}：{{ systemInfo?.phone }}</p>
