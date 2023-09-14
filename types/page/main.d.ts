@@ -20,7 +20,7 @@ declare interface ISystemInfoResponse {
     "address_en": string,
     "filing_en": "",
     "copyright_en": "",
-    icon:string,    // 网站图标
+    icon: string,    // 网站图标
 }
 
 
@@ -87,10 +87,26 @@ declare interface INewsResponse {
     "type": 1,
     "createdAt": "2023-08-31T06:59:35.000Z",
     "updatedAt": "2023-08-31T06:59:35.000Z",
-    read:number,    // 阅读量
+    read: number,    // 阅读量
 }
 
-declare interface INewsResponseList{
-    list:INewsResponse[],
-    total:number
+declare interface INewsResponseList {
+    list: INewsResponse[],
+    total: number
 }
+
+
+
+
+
+
+declare interface IIndexResponse {
+    recommend: INewsResponse[],
+    cate: {
+        cateList: IMenuListResponse[],
+        goodsList: INewsResponse[],
+    },
+    newsList: INewsResponse[],
+    mienList: INewsResponse[],
+}
+

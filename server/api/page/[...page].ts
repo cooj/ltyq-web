@@ -1,5 +1,5 @@
 import { createRouter, defineEventHandler, useBase } from 'h3'
-import { getAboutInfo, getBannerList, getMenuList, getNewsInfo, getProductInfo, getSystemInfo } from '~/server/controller/page'
+import { getAboutInfo, getBannerList, getIndexData, getMenuList, getNewsInfo, getProductInfo, getSystemInfo } from '~/server/controller/page'
 import { getList } from '~/server/controller/news'
 import { getList as getProductList } from '~/server/controller/product'
 
@@ -72,6 +72,13 @@ router.use('/product', defineEventHandler(async (event) => {
  */
 router.use('/product/detail', defineEventHandler(async (event) => {
     return getProductInfo(event)
+}))
+
+/**
+ * 获取首页模块信息
+ */
+router.use('/index', defineEventHandler(async (event) => {
+    return getIndexData(event)
 }))
 
 export default useBase('/api/page', router.handler)

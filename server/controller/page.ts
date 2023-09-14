@@ -256,3 +256,86 @@ export const getProductInfo = async (event: H3Event) => {
         nextNews: res2[0],
     }
 }
+
+/**
+ * 获取首页信息
+ */
+export const getIndexData = async (event: H3Event) => {
+    // 获取参数
+    // const param = await getEventParams<{ id: number }>(event)
+
+    // if (!param?.id) return null
+    // 推荐商品\商品分类、商品\新闻和风采
+    const [res1, res2, res3, res4] = await Promise.all([
+        event.context.prisma.product.findMany({
+            where: {
+                isHide: false,
+                // type: Number(param.type),
+            },
+            orderBy: {
+                createdAt: 'asc', // 升序排序
+            },
+        }),
+        event.context.prisma.menu.findMany({
+            where: {
+                p_id: 3,
+            },
+            orderBy: {
+                sort: 'asc', // 按id正序排序
+            },
+            // include: {
+            //     children: true,
+            // },
+            // select: { // 只返回指定的字段
+            //     username: true,
+            //     account: true,
+            // },
+        }),
+        event.context.prisma.product.findMany({
+            skip: 0,
+            take: 9,
+            where: {
+                isHide: false,
+                // type: Number(param.type),
+            },
+            // orderBy: {
+            //     createdAt: 'asc', // 升序排序
+            // },
+        }),
+        event.context.prisma.news.findMany({
+            where: {
+                type: {
+                    in: [1, 4],
+                },
+                isHide: false,
+                // type: Number(param.type),
+            },
+            orderBy: {
+                createdAt: 'asc', // 升序排序
+            },
+        }),
+    ])
+
+    // 推荐商品
+
+    // 商品分类
+
+    // 商品分类边上的推荐商品
+
+    // skip: 0,
+    //         take: 9,
+
+    // 推荐新闻 1
+
+    // 公司风采 4
+
+    return {
+        recommend: res1,
+        cate: {
+            cateList: res2,
+            goodsList: res3,
+        },
+        newsList: res4.filter(item => item.type === 1).slice(0, 6),
+        mienList: res4.filter(item => item.type === 4).slice(0, 4),
+    }
+}
