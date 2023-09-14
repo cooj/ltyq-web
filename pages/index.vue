@@ -35,8 +35,8 @@ definePageMeta({
 </script>
 
 <style  lang="scss" scoped>
-.index-box {
-    padding-top: 40px;
-    background-color: #f3f3f3;
-}
+// .index-box {
+//     padding-top: 40px;
+//     background-color: #f3f3f3;
+// }
 </style>
