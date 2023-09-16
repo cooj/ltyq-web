@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="main-box">
         <LayoutHomeHeader />
         <LayoutHomeBanner />
         <slot />
@@ -11,4 +11,9 @@
 
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.main-box{
+    width:100%;
+    min-width: 1200px;
+}
+</style>
