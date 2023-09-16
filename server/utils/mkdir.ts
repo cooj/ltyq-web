@@ -96,9 +96,9 @@ export const dirExists = async (dir: fs.PathLike) => {
  */
 export const createFile = async (ext: string, data: NodeJS.ArrayBufferView | string, isHost = false) => {
     // TODO 需测试，生产环境下能否读取到环境变量
-    const uploadDir = import.meta.env.NUXT_UPLOAD_DIR
+    const uploadDir = import.meta.env.NUXT_UPLOAD_DIR || process.env.NUXT_UPLOAD_DIR
 
-    const HOST = import.meta.env.NUXT_UPLOAD_HOST || ''
+    const HOST = import.meta.env.NUXT_UPLOAD_HOST || process.env.NUXT_UPLOAD_DIR || ''
 
     // const dir = resolve(uploadDir, '2023/08/23')
     // const file = resolve(dir, `${dateDir}${ext}`)
