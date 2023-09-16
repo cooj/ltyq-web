@@ -23,7 +23,8 @@
                     </div>
                     <div class="side-item mt20px">
                         <h3 class="co-main-bg-color px15px py10px text-14px font-bold c-white">
-                            {{ $t('contactName') }}
+                            <!-- {{ $t('contactName') }} -->
+                            {{ $lang('联系我们', 'Contact us') }}
                         </h3>
                         <div class="side-bor">
                             <div class="b-1px b-#ddd b-solid">
@@ -34,10 +35,12 @@
                                     {{ $lang(systemInfo?.title, systemInfo?.title_en) }}
                                 </li>
                                 <li>
-                                    {{ $t('serverPhone') }}：{{ systemInfo?.phone }}
+                                    <!-- {{ $t('serverPhone') }} -->
+                                    {{ $lang('服务热线', 'Service hotline') }}：{{ systemInfo?.phone }}
                                 </li>
                                 <li>
-                                    {{ $t('addressName') }}：{{ $lang(systemInfo?.address, systemInfo?.address_en) }}
+                                    <!-- {{ $t('addressName') }} -->
+                                    {{ $lang('总部地址', 'Address') }}：{{ $lang(systemInfo?.address, systemInfo?.address_en) }}
                                 </li>
                             </ul>
                         </div>
@@ -45,12 +48,14 @@
                 </el-col>
                 <el-col :xs="20" :sm="20" :md="19" :lg="18" :xl="18">
                     <div class="co-main-bg-color flex items-center px15px py10px text-14px font-bold c-white">
-                        {{ $t('site') }}：
+                        <!-- {{ $t('site') }} -->
+                        {{ $lang('当前位置', 'Location') }}：
                         <ClientOnly>
                             <el-breadcrumb class="bread-box">
                                 <el-breadcrumb-item>
                                     <NuxtLinkLocale to="/">
-                                        {{ $t('home') }}
+                                        <!-- {{ $t('home') }} -->
+                                        {{ $lang('首页', 'Home') }}
                                     </NuxtLinkLocale>
                                 </el-breadcrumb-item>
                                 <el-breadcrumb-item>

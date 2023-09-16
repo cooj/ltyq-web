@@ -4,9 +4,13 @@
             {{ $lang(news?.title, news?.title_en) }}
         </h3>
         <div class="time text-center">
-            <span class="mr10px">{{ $t('time') }}：{{ formatTime(new Date(news!.createdAt)) }}</span>
+            <span class="mr10px">
+                <!-- {{ $t('time') }} -->
+                {{ $lang('发布时间', 'Release time') }}：{{ formatTime(new Date(news!.createdAt)) }}</span>
             <!-- <span>{{ $t('author') }}：{{ news?.author }}</span> -->
-            <span>{{ $t('read') }}：{{ news?.read }}</span>
+            <span>
+                <!-- {{ $t('read') }} -->
+                {{ $lang('浏览次数', 'Views') }}：{{ news?.read }}</span>
         </div>
         <!-- <div class="intro">
                 {{ $lang(news?.describe, news?.describe_en) }}
@@ -15,13 +19,21 @@
 
         <div class="next-prev">
             <NuxtLinkLocale v-if="prevNews?.id" :to="setLinkPath(prevNews)">
-                {{ $t('prev') }}： {{ $lang(prevNews?.title, prevNews?.title_en) }}
+                <!-- {{ $t('prev') }} -->
+                {{ $lang('上一个', 'Prev') }}： {{ $lang(prevNews?.title, prevNews?.title_en) }}
             </NuxtLinkLocale>
-            <span v-else>{{ $t('prev') }}：{{ $t('none') }} </span>
+            <span v-else>
+                <!-- {{ $t('prev') }}：{{ $t('none') }} -->
+                {{ $lang('上一个', 'Prev') }}：{{ $lang('无', 'none') }}
+            </span>
             <NuxtLinkLocale v-if="nextNews?.id" :to="setLinkPath(nextNews)">
-                {{ $t('next') }}： {{ $lang(nextNews?.title, nextNews?.title_en) }}
+                <!-- {{ $t('next') }} -->
+                {{ $lang('下一个', 'Next') }}： {{ $lang(nextNews?.title, nextNews?.title_en) }}
             </NuxtLinkLocale>
-            <span v-else>{{ $t('next') }}：{{ $t('none') }} </span>
+            <span v-else>
+                <!-- {{ $t('next') }}：{{ $t('none') }}  -->
+                {{ $lang('下一个', 'Next') }}：{{ $lang('无', 'none') }}
+            </span>
         </div>
     </div>
 </template>

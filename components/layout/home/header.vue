@@ -11,7 +11,7 @@
                             <i class="i-carbon:phone-filled" />
                         </div>
                         <div class="c-#005a7f">
-                            {{ $t('topPhone') }}：<br>
+                            {{ $lang('全国咨询热线', 'National consultation hotline') }}：<br>
                             <span class="font-bold">{{ systemInfo?.phone }}</span>
                         </div>
                     </div>
@@ -24,9 +24,6 @@
                 <ul class="header-menu-ul flex">
                     <li v-for="item in menuList" :key="item.id" class="flex-1">
                         <NuxtLinkLocale :to="item.href" class="header-link">
-                            <!-- {{ item.title }} -->
-                            <!-- {{ setLangText(item.title, item.title_en) }} -->
-                            <!-- {{ $t() }} -->
                             {{ $lang(item.title, item.title_en) }}
                         </NuxtLinkLocale>
                     </li>
