@@ -75,7 +75,6 @@ const { $lang } = useNuxtApp()
 const { activeMenu, menuList } = useMenuState()
 
 const systemInfo = await useSystemState().getSystemInfo()
-console.log(systemInfo)
 
 const sideMenu = computed(() => {
     if (activeMenu.value?.children?.length) {

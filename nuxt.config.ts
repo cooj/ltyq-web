@@ -134,13 +134,15 @@ export default defineNuxtConfig({
         langDir: 'lang',
         defaultLocale: 'cn', // default locale of your project for Nuxt pages and routings
         // strategy: 'prefix_except_default',
-        detectBrowserLanguage: {
-            useCookie: true,
-            cookieKey: 'i18n_redirected',
-            redirectOn: 'root', // recommended
-            // alwaysRedirect: true,
-            // fallbackLocale: 'zh',
-        },
+        detectBrowserLanguage: false,
+        // detectBrowserLanguage: {
+        //     useCookie: true,
+        //     cookieKey: 'i18n_redirected',
+        //     redirectOn: 'root', // recommended
+        //     // alwaysRedirect: false,
+        //     // fallbackLocale: 'cn',
+        // },
+
         // customRoutes: 'page',
         // pages: {
         //     login: {

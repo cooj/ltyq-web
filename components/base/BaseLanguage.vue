@@ -25,7 +25,7 @@ import type { LocaleObject } from '@nuxtjs/i18n/dist/runtime/composables'
 // // import BaseMenu from './components/BaseMenu.vue'
 // import BaseTop from './components/BaseTop.vue'
 
-if (process.client) console.log(useI18n())
+// if (process.client) console.log(useI18n())
 
 const { locale, locales, localeProperties, setLocale } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
@@ -38,7 +38,7 @@ const switchLocalePath = useSwitchLocalePath()
 //
 const changeLanguage = async (code: string) => {
     const n = switchLocalePath(code)
-    console.log(n)
+    // console.log(n)
     navigateTo(n)
 }
 </script>

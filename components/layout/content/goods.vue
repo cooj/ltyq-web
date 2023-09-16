@@ -57,7 +57,7 @@ const initTableData = async () => {
     if (error.value) return ElMessage.error('网络错误')
 
     defData.listData = data.value?.data.list || []
-    console.log(defData.listData)
+
     defData.pagination.total = data.value?.data.total || 0
     // await wait(500)
     if (data.value?.code === 200) {

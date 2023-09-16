@@ -25,11 +25,6 @@ const locale = computed(() => {
     return lo.value === 'en' ? en : zhCn
 })
 
-// let a = -1
-// if (a > 0){ a++}
-
-// console.log('a :>> ', a);
-
 useHead({
     title: systemInfo.value?.title,
     meta: [
