@@ -3,18 +3,19 @@
 export default eventHandler(async (event) => {
     // console.log(event)
 
-    // const Origin = ['http://localhost:9005/']
-    // const requestOrigin = getRequestHeaders(event).origin || ''
-    // if (Origin.includes(requestOrigin)) {
-    //     setResponseHeaders(event, {
-    //         'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    //         'Access-Control-Allow-Origin': requestOrigin,
-    //         // 'Access-Control-Allow-Origin': '*',
-    //         'Access-Control-Allow-Credentials': 'true',
-    //         'Access-Control-Allow-Headers': '*',
-    //         'Access-Control-Expose-Headers': '*',
-    //     })
-    // }
+    // 跨域配置
+    const Origin = ['http://luotaiyiqi.com/', 'http://www.luotaiyiqi.com/']
+    const requestOrigin = getRequestHeaders(event).origin || ''
+    if (Origin.includes(requestOrigin)) {
+        setResponseHeaders(event, {
+            'Access-Control-Allow-Methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+            'Access-Control-Allow-Origin': requestOrigin,
+            // 'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': 'true',
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Expose-Headers': '*',
+        })
+    }
 
     const url = getRequestURL(event)
     // api接口才进行验证
