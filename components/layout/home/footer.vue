@@ -2,8 +2,8 @@
     <section class="footer bg-#333">
         <div class="py20px text-16px">
             <div class="container">
-                <div class="flex items-center justify-between">
-                    <div class="flex items-center">
+                <div class="mt10px flex justify-between">
+                    <div class="flex">
                         <NuxtLinkLocale to="/" class="mr20px">
                             <img :src="systemInfo?.logo2" class="max-h150px max-w350px" alt="">
                         </NuxtLinkLocale>
@@ -12,7 +12,7 @@
                             <p>{{ $lang('联系地址', 'Address') }}：{{ $lang(systemInfo?.address, systemInfo?.address_en) }}</p>
                         </div>
                     </div>
-                    <div class="flex items-start text-46px">
+                    <!-- <div class="flex items-start text-46px">
                         <a :href="qqLink">
                             <i class="i-mdi:qqchat block" />
                         </a>
@@ -22,6 +22,10 @@
                                 <img :src="systemInfo?.qrCode" class="h100px w100px" alt="">
                             </div>
                         </a>
+                    </div> -->
+                    <div class="text-center">
+                        <co-image :src="systemInfo?.qrCode" class="h90px w90px" />
+                        <p>关注我们</p>
                     </div>
                 </div>
                 <div class="pt15px text-13px">
@@ -35,7 +39,8 @@
         <div class="footer-bot b-t b-t-#222 b-t-solid py15px">
             <div class="c-#bbb container">
                 <span class="mr8px">{{ $lang(systemInfo?.copyright, systemInfo?.copyright_en) }}</span>
-                <span>{{ $lang(systemInfo?.filing, systemInfo?.filing_en) }}</span>
+                <a href="https://beian.miit.gov.cn/" target="_blank">{{ $lang(systemInfo?.filing, systemInfo?.filing_en)
+                }}</a>
             </div>
         </div>
     </section>
