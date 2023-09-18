@@ -37,6 +37,9 @@ export default defineNuxtConfig({
             // routes: ['/'],
             // ignore: ['/hi'],
         },
+        routeRules: {
+            '/api/**': { cors: true },
+        },
 
         // experimental: {
         //     // https://nitro.unjs.io/guide/utils#experimental-composition-api
