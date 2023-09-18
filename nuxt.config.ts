@@ -38,7 +38,7 @@ export default defineNuxtConfig({
             // ignore: ['/hi'],
         },
         routeRules: {
-            '/api/**': { cors: true },
+            '/api/**': { cors: true, headers: { 'access-control-allow-origin': '*' } },
         },
 
         // experimental: {
