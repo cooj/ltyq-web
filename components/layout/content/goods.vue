@@ -6,7 +6,7 @@
                     <NuxtLinkLocale :to="setLinkPath(item)" class="link">
                         <co-image :src="item.img" class="w100% b-1px b-#eee b-solid pb75% block!" />
                     </NuxtLinkLocale>
-                    <h3 class="mt5px text-truncate text-center font-bold">
+                    <h3 class="line-clamp-1 mt5px text-center font-bold">
                         <NuxtLinkLocale :to="setLinkPath(item)" class="link-a">
                             {{ $lang(item.title, item.title_en) }}
                         </NuxtLinkLocale>
@@ -99,6 +99,13 @@ initTableData()
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 5px;
+
+    .tle {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+    }
 }
 
 .link {
