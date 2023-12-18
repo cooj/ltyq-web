@@ -88,5 +88,10 @@ const menuList = await useMenuState().getMenuList()
     line-height: 52px;
     display: inline-block;
     font-weight: bold;
+
+    &:hover,
+    &.router-link-active {
+        color: var(--el-color-info-light-5);
+    }
 }
 </style>

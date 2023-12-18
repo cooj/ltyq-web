@@ -242,8 +242,12 @@ const { data: companyInfo } = await useCustomFetch<IAboutInfoResponse>('/api/pag
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(71, 204, 173, .5);
+            // background-color: rgba(71, 204, 173, .5);
             transition: all .3s ease-out;
+
+            --color: rgb(from var(--co-main-color) r g b / 50%);
+            background-color:var(--color);
+            // background-color: color-mix(in oklch, var(--co-main-color), transparent 60%);
 
             span {
                 transform: translate(-50%, -50%);

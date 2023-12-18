@@ -12,8 +12,8 @@
 </script>
 
 <style lang="scss" scoped>
-.main-box{
-    width:100%;
+.main-box {
+    width: 100%;
     min-width: 1200px;
 }
 </style>

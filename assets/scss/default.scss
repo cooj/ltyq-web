@@ -1,6 +1,6 @@
 // @use 'sass:map';
-// $bgColor: #fff;
-@forward "element-plus/theme-chalk/src/common/var.scss" with ($colors: ("primary": ("base": #47ccad),
+// $bgColor: #fff;#47ccad;#2a3d61;
+@forward "element-plus/theme-chalk/src/common/var.scss" with ($colors: ("primary": ("base": #2a3d61),
         // "success": ("base": #04ae8b),
         // "warning": ("base": #FF771C),
         // "danger": ("base": #ff3030),
@@ -46,7 +46,7 @@
 :root {
     --m-color-white: #fff;
     --m-body-bg-color: #f3f3f3;
-    --co-main-color: #47ccad;
+    --co-main-color: #2a3d61;
     --co-white-color: #fff;
 
 }
