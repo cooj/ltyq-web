@@ -268,6 +268,8 @@ export const getIndexData = async (event: H3Event) => {
     // 推荐商品\商品分类、商品\新闻和风采
     const [res1, res2, res3, res4] = await Promise.all([
         event.context.prisma.product.findMany({
+            skip: 0,
+            take: 20,
             where: {
                 isHide: false,
                 // type: Number(param.type),
