@@ -278,7 +278,8 @@ const { data: companyInfo } = await useCustomFetch<IAboutInfoResponse>('/api/pag
             font-weight: bold;
 
             &:hover {
-                border-color: #389f87;
+                // border-color: #389f87;
+                border-color: var(--co-main-color);
                 color: var(--co-main-color);
                 background-color: #fff;
             }
