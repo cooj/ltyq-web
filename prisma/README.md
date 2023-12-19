@@ -89,8 +89,8 @@ export default defineEventHandler(async (event) => {
 <!-- npx prisma db push -->
 
 ## 四、上线部署至服务器（PM2）
-1、项目目录下创建在`ecosystem.config.js`文件，使用PM2作为进程监控，应用程序发生错误时，PM2会自动重启进程
-```typescript
+1、项目根目录下创建在`ecosystem.config.js`文件，使用PM2作为进程监控，应用程序发生错误时，PM2会自动重启进程
+```javascript
 module.exports = {
     apps: [
         {
@@ -106,4 +106,8 @@ module.exports = {
         },
     ],
 }
+```
+2、项目根目录执行命令：
+```bash
+pm2 start
 ```
