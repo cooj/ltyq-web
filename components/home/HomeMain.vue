@@ -94,13 +94,13 @@
                 <h3 class="mb35px text-center text-24px">
                     <span class="tle-line">{{ $lang('公司简介', 'COMPANY INFORMATION') }}</span>
                 </h3>
-                <div class="mb30px flex">
+                <div class="mb30px flex items-center">
                     <div class="w50%">
-                        <div class="com-left relative">
-                            <co-image :src="companyInfo?.img" fit="cover" class="com-translate w100% pb78% block!" />
+                        <div class="com-left relative mb30px">
+                            <co-image :src="companyInfo?.img" class="com-translate w100% pb78% block!" />
                         </div>
                     </div>
-                    <div class="w50% p25px">
+                    <div class="w50% px25px">
                         <div class="com-cont pb10px" v-html="$lang(companyInfo?.content, companyInfo?.content_en)" />
                         <NuxtLinkLocale to="/about" class="link">
                             {{ $lang('查看更多+', 'Learn more +') }}
@@ -147,7 +147,13 @@
 <script lang="ts" setup>
 const { $lang } = useNuxtApp()
 
-const { data } = await useCustomFetch<IIndexResponse>('/api/page/index')
+const data = ref<IIndexResponse | null>()
+useCustomFetch<IIndexResponse>('/api/page/index').then((res) => {
+    data.value = res.data.value
+})
+
+// const { data } = await useCustomFetch<IIndexResponse>('/api/page/index')
+
 // console.log('🚀 ~ file: HomeMain.vue:116 ~ data:', data)
 
 const { data: companyInfo } = await useCustomFetch<IAboutInfoResponse>('/api/page/about', {
@@ -246,7 +252,7 @@ const { data: companyInfo } = await useCustomFetch<IAboutInfoResponse>('/api/pag
             transition: all .3s ease-out;
 
             --color: rgb(from var(--co-main-color) r g b / 50%);
-            background-color:var(--color);
+            background-color: var(--color);
             // background-color: color-mix(in oklch, var(--co-main-color), transparent 60%);
 
             span {
