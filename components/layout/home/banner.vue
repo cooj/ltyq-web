@@ -42,8 +42,9 @@ const { data: banner } = await useCustomFetch<ISlideListResponse[]>('/api/page/g
 .banner-link {
     display: block;
     width: 100%;
-    height: 600px;
+    // height: 600px;
     position: relative;
+    padding-bottom: 33%;
     top: 0;
     left: 0;
     // padding-bottom: 30%;
