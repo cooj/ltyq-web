@@ -147,12 +147,12 @@
 <script lang="ts" setup>
 const { $lang } = useNuxtApp()
 
-const data = ref<IIndexResponse | null>()
-useCustomFetch<IIndexResponse>('/api/page/index').then((res) => {
-    data.value = res.data.value
-})
+// const data = ref<IIndexResponse | null>()
+// useCustomFetch<IIndexResponse>('/api/page/index').then((res) => {
+//     data.value = res.data.value
+// })
 
-// const { data } = await useCustomFetch<IIndexResponse>('/api/page/index')
+const { data } = await useCustomFetch<IIndexResponse>('/api/page/index')
 
 // console.log('🚀 ~ file: HomeMain.vue:116 ~ data:', data)
 
